@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% for post in posts %} {{ post.title }} {{ post.name }} {% endfor %}
 <form action='' method='post' name='new_post'>
     {{ form.hidden_tag() }}
     <h1>New Thread</h1>
@@ -23,6 +23,6 @@
         <span style='color: red;'>[{{error}}]</span>
         {% endfor %}
     </p>
-    <p>{{ form.submit() }}</p>
+    <button type="submit">Post</button>
 </form>
 {% endblock %}
