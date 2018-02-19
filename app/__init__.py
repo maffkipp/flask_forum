@@ -1,8 +1,11 @@
 from flask import Flask
-from mongoengine import *
+from mongoengine import connect
 
-connect(host='mongodb://user:password@ds239648.mlab.com:39648/flask_forum')
+from config import Config
+
 
 app = Flask(__name__)
+app.config.from_object(Config)
+connect(host=app.config['MONGODB_URI'])
 
-from app import routes
+from app import routes, models
