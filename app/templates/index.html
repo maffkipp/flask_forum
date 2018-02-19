@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <form action='' method='post' name='new_post'>
+    {{ form.hidden_tag() }}
+    <h1>New Thread</h1>
     <p>
         {{ form.title.label }}
         <br> {{ form.title(size=50) }}
@@ -9,10 +11,18 @@
     </p>
     <p>
         {{ form.content.label }}
-        <br> {{ form.content(size=50) }}
+        <br> {{ form.content(cols=50, rows=4) }}
         <br> {% for error in form.content.errors %}
         <span style='color: red;'>[{{error}}]</span>
         {% endfor %}
     </p>
+    <p>
+        {{ form.name.label }}
+        <br> {{ form.name(size=32) }}
+        <br> {% for error in form.name.errors %}
+        <span style='color: red;'>[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit() }}</p>
 </form>
 {% endblock %}
