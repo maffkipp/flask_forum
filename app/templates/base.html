@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Flask Forum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
 
 <body>
+    <h1>Flask Forum</h1>
     {% block content %}{% endblock %}
 </body>
 

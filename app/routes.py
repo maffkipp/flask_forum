@@ -39,3 +39,4 @@ def comments(postid):
         post.save()
         return redirect(url_for('comments', postid=postid))
     return render_template('comments.html', form=form, post=post)
+
