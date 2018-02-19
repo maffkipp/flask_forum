@@ -8,6 +8,7 @@ from flask_mongoengine.wtf import model_form
 class Comment(db.EmbeddedDocument):
     content = db.StringField()
     name = db.StringField(max_length=50)
+    time = db.DateTimeField()
 
     def __repr__(self):
         return 'Comment: {}'.format(self.content)
@@ -19,6 +20,7 @@ class Post(db.Document):
     content = db.StringField()
     comments = db.ListField(db.EmbeddedDocumentField(Comment))
     name = db.StringField(max_length=50)
+    time = db.DateTimeField()
 
     def __repr__(self):
         return 'Post: {}'.format(self.content)
